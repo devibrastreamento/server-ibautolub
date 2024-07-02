@@ -1,0 +1,55 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<!-- <div class="apagar" id="senha_verificar">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div> -->
+<section>
+<div class="painel-formulário">
+        <form id="form_adm_senha">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                    <label for="validationServer03" class="form-label">Login</label>
+                    <input type="text" class="form-control" id="login" name="login" aria-describedby="validationServer03Feedback" 
+                    value="<?=  base64_decode($this->view->dados['login'])?>"
+                    onchange='verificarLoginAdm(this.value,<?=$_GET["id_adm"]?>)'
+                    >
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                   Login Existente
+                    </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha"
+                        >
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                   Senha inválida
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="confirmar_senha" >
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                        Senha inválida
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_edit_senha" onclick='editarSenha(<?=$this->view->id?>)'>
+                    Editar
+                </button>
+                
+            </div>
+        </form>

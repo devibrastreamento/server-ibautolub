@@ -1,0 +1,84 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+
+
+<section>
+<div class="painel-formulário">
+     <p> Cadastro de Serviços</p>
+   <p> <span class="text-danger">*</span> É obrigatório</p>
+   <p>A qtd por caixa será usado para gerenciamento de estoque</p>
+    
+        <form id="form_add_product">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome do Produto <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="nome_produto" name="nome_produto" placeholder="Óleo de Carro" 
+                        value="<?=  $this->view->dados['produto']?>"
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Códio de barra <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="codigo_barra" name="codigo_barra" placeholder="000000000000"
+                        value="<?=  $this->view->dados['codigo_barra']?>"
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">
+                            Preço de Venda (R$)
+                            <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" step="0.01" id="preco" name="preco" placeholder="25,00"
+                        value="<?=  $this->view->dados['preco']?>"
+                        >
+                    </div>
+                    
+                    
+               
+            </div>
+            <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Fornecedor</label>
+                        <input type="text" class="form-control" id="fornecedor" name="fornecedor" placeholder="Empresa X"
+                        value="<?=  $this->view->dados['fornecedor']?>"
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Qtd por caixa <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="qtd" name="qtd" placeholder="10"
+                        value="<?=  $this->view->dados['qtd']?>"
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Preço de compra<span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="preco_compra" step="0.01" name="preco_compra"
+                        value="<?=  $this->view->dados['preco_compra']?>"
+                        >
+                    </div>
+                    
+               
+            </div>
+            <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tipo de óleo(Se for Óleo de Motor)</label>
+                        <select class="form-control" id="categoria" name="categoria"> 
+                            <option value="<?=  $this->view->dados['categoria']?>">Atual:<?=  $this->view->dados['categoria']?></option>
+                            <option value="mineral">Mineral</option>
+                            <option value="semissintetico">Semissintético</option>
+                            <option value="sintetico">Sintético</option>
+                        </select>
+                    </div>
+                    
+               
+            </div>
+            <div class="">
+                <button type="button"  class="btn btn-success" id="btn_editar_produto" onclick='editarProduto(<?= $this->view->id?>)' >
+                    Cadastrar
+                </button>
+                
+            </div>
+        </form>
+    </div>
+    </section>

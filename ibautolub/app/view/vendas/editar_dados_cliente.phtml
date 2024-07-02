@@ -1,0 +1,71 @@
+
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<section class="mt-5" >
+    <div class="row">
+        <div class="col-md-12">
+          <div class="box-cadastrar-cliente">
+                <div class="box-cadastrar-cliente-title">
+                    <h5 class="display-5">Cadastro de Clientes</h5>
+                </div>
+                <div class="box-cadastrar-cliente-body" >
+                    <div class="">
+                    <form id="form_edit_cliente_basico" class="alinhar">
+                                        <div class="row">
+                                            <div class="col-auto  mt-4">
+                                            <h5>Dados Básicos</h5>
+                                                <div >
+                                                    <label for="" class="form-label">Nome</label>
+                                                    <input type="text" name="nome" id="nome"  class="form-control" placeholder="Fulano de Oliveira"
+                                                    value="<?= $this->view->dados['nome']?>"> 
+                                                    <div class="invalid-feedback">
+                                                       Nome inválido
+                                                    </div>
+                                                </div>
+                                                <div class="mt-4 ">
+                                                    <label for="" class="form-label">Email</label>
+                                                    <input type="text" name="email" id="email"  class="form-control" placeholder="email@exemplo.com"
+                                                    value="<?= $this->view->dados['email']?>">
+                                                    <div class="invalid-feedback">
+                                                        Email inválido
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-auto mt-4">
+                                            <div class="mt-4">
+                                                    <label for="" class="form-label">Cpf/Cnpj</label>
+                                                    <input type="text" name="cpf_cnpj" id="cpf_cnpj"  class="form-control" placeholder="000.000.000-0"
+                                                    value="<?= $this->view->dados['cpf_cnpj']?>">
+                                                    <div class="invalid-feedback">
+                                                   Cpf inválido
+                                                    </div>
+                                                </div>
+                                                <div class="mt-4">
+                                                    <label for="" class="form-label">telefone</label>
+                                                    <input type="text" name="telefone" id="telefone"  
+                                                    class="form-control" placeholder="00 00000000"
+                                                    value="<?= $this->view->dados['telefone']?>">
+                                                    <div id="telefone" class="invalid-feedback">
+                                                  telefone inválido
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                            <div class="mt-3">
+                                                <button class="btn btn-success" type="button" id="btn_editar_dados" onclick='editarDadosCliente(<?= $_GET["id"] ?>)'>
+                                                    Salvar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+<div class="painel-contas">
+    <?php foreach($this->view->dados as $value){
+        if($value['tipo'] == 'receita'){
+        ?>
+    <div class="card-contas " onclick='abrirJanelaComParametros("despesas_adm?id=<?=$value["id_conta"]?>","Visualizar Despesas","/app/adm/contas_apagar?n=Q29udGFzIGEgUGFnYXIK=&b=L2FwcC9hZG0vaG9tZQ==")'>
+        <div class="card-contas-title">
+            <p class="fs-3 text-center"><?=$value['tipo'] ?></p>
+            
+        </div>
+        <div class="card-contas-body">
+           
+            <div class="config-info">
+                <label class="">Valor</label>
+                <p class="">R$<?=$value['valor'] ?></p>
+            </div>
+            <div class="config-info">
+                <label class="">Criado</label>
+                <p class=""><?=$value['data_conta'] ?></p>
+               
+            </div>
+        </div>
+    </div>
+    <?php } else{?>
+        <div class="card-contas ">
+            
+        <div class="card-contas-title">
+            <p class="fs-3 text-center"><?=$value['tipo'] ?></p>
+            <?php 
+                if($value['status_conta'] == 1){
+            ?>
+                <p class="text-danger">A Pagar</p>
+            <?php }else{?>
+                <p class="text-success">Pago</p>
+            <?php } ?>
+            <div class="dropdown">
+                
+                <img src="/ibautolub/public/img/iconePreto.png" alt="" width="15" data-bs-toggle="dropdown">
+               
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" onclick='abrirJanelaComParametros("despesas_adm?id=<?=$value["id_conta"]?>","Visualizar Despesas","/app/adm/contas_apagar?n=Q29udGFzIGEgUGFnYXIK=&b=L2FwcC9hZG0vaG9tZQ==")'>Visualizar</a></li>
+                    <?php if($value['status_conta'] == 1){?>
+                    <li><a class="dropdown-item" onclick='ativarPagamento(<?= $value["id_conta"]?>)'>Pagar</a></li>
+                    <?php }else{?>
+                    <li><a class="dropdown-item" onclick='inativarPagamento(<?= $value["id_conta"]?>)'>Não Paga</a></li>
+                    <?php }?>
+                </ul>
+            </div>
+        </div>
+        <div class="card-contas-body">
+            <div class="config-info">
+                <label class="">Valor</label>
+                <p class="">R$<?=$value['valor'] ?></p>
+            </div>
+            <div class="config-info">
+                <label class="">Vencimento</label>
+                <p class=""><?=$value['data_conta'] ?></p>
+            </div>
+        </div>
+    </div>
+    <?php } }?>
+
+</div>

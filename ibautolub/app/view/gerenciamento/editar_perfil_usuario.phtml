@@ -1,0 +1,94 @@
+<div class="apagar" id="msg_basico">
+    <div class="alert alert-danger" role="alert">
+        Campo de Dados Básico nulo 
+    </div> 
+</div>
+<div class="apagar" id="msg_login">
+    <div class="alert alert-danger" role="alert">
+        Campo de Dados de Login nulo
+    </div> 
+</div>
+<!-- <div class="apagar" id="senha_verificar">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div> -->
+<section>
+<div class="painel-formulário">
+        
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Dados Básico</h2>
+                <form id="form_edit_dados_adm">
+                    <div class="mb-3">
+                    <label for="validationServer03" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome_adm" name="nome_adm" aria-describedby="validationServer03Feedback" 
+                    value="<?=  $this->view->dados['nome']?>"
+                    >
+                    
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email_adm" name="email" placeholder="fulano@gmail.com"
+                        value="<?=  $this->view->dados['email']?>"
+                        >
+                       
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Permisão de Cadastro</label>
+                        <select name="permissao" id="permissao" class="form-control">
+                            <option value="<?=  $this->view->dados['permissao_cadastro']?>">Atual: <?=  $this->view->dados['permissao_cadastro']?></option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="">
+                <button type="button" class="btn btn-success" id="btn_edit_adm_basico" onclick='editarDadosAdmUser(<?=$this->view->id?>)'>
+                    Editar
+                </button>
+                
+            </div>
+                </form>
+                </div>
+                <div class="col-md-6">
+                <h2>Dados Login</h2>
+                <form id="form_edit_senha_adm">
+                    <div class="mb-3">
+                    <label for="validationServer03" class="form-label">Login</label>
+                    <input type="text" class="form-control" id="login" name="login" aria-describedby="validationServer03Feedback" 
+                    value="<?=  base64_decode($this->view->dados['login'])?>"
+                    >
+                    
+                    </div>
+                    <div class="mb-3">
+                    <label for="validationServer03" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" aria-describedby="validationServer03Feedback">
+                    <div class="invalid-feedback">
+                    Senha inválida
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                    <label for="validationServer03" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="senha2" aria-describedby="validationServer03Feedback">
+                    <div class="invalid-feedback">
+                    Senha inválida
+                    </div>
+                    
+                    </div>
+                    
+                    <div class="">
+                <button type="button" class="btn btn-success" id="btn_edit_dados_senha" onclick='editarSenhaAdmUser(<?=$this->view->id?>)'>
+                    Editar
+                </button>
+                
+            </div>
+                </form>
+                </div>
+                
+            </div>
+            
+    </div>
+    </section>

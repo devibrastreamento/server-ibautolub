@@ -1,0 +1,118 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+       Login ou Senha vazio
+    </div> 
+</div>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="painel-produtos">
+                    <div class="painel-produtos-title">
+                                <h5 class="display-5">Alterar Dados Perfil</h5>
+                               
+                                <hr>
+                    </div>
+                    <div class="">
+                        <div class="form-intro">
+                            <h5>Editar Dados básicos</h5>
+                            <div class="form-body">
+                                <form id="update_basic">
+                                <div class="row">
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Nome Cliente</label>
+                                         <input type="text" id="nome" class="form-control"  name="nome"
+                                         placeholder="Fulano" value="<?=$this->view->dados['nome']?>">
+                                         <div class="invalid-feedback">
+                                            Campo Vazio
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Email</label>
+                                         <input type="text" id="email" class="form-control" name="email"
+                                          placeholder="Fulano@gmail.com" value="<?=$this->view->dados['email']?>">
+                                          <div class="invalid-feedback">
+                                            Campo Vazio
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Telefone</label>
+                                         <input type="text" id="telefone" class="form-control" name="telefone"
+                                         placeholder="00000-000" value="<?=$this->view->dados['telefone']?>">
+                                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">CPF</label>
+                                         <input type="text" id="cpf" class="form-control" name="cpf"
+                                         placeholder="000.000.000-00" value="<?=$this->view->dados['cpf_cnpj']?>">
+                                         <div class="invalid-feedback">
+                                            Campo Vazio
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <button class="btn btn-success" onclick='atualizarDadosBasico(<?=$this->view->id?>)'
+                                        type="button" id="btn_update_basic">
+                                            Editar
+                                        </button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+        </div>
+        <div class="col-md-6">
+            <div class="painel-produtos">
+                    <div class="painel-produtos-title">
+                                <h5 class="display-5">Login</h5>
+                               
+                                <hr>
+                    </div>
+                    <div class="">
+                        <div class="form-intro">
+                            <h5>Editar Dados de Login</h5>
+                            <div class="form-body">
+                                <form id="form_password">
+                                    <div class="row">
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Login</label>
+                                         <input type="text" id="login" class="form-control" name="login"
+                                         value="<?=base64_decode($this->view->dados['login'])?>">
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Senha</label>
+                                         <input type="password" id="senha" class="form-control" name="senha">
+                                         <div class="invalid-feedback">
+                                            Senha inválida
+                                        </div>
+                                    </div>
+                                    <div class="col-auto mb-3">
+                                         <label for="nome" class="form-label">Confirmar Senha</label>
+                                         <input type="password" id="senha2" class="form-control" >
+                                         <div class="invalid-feedback">
+                                            Senha inválida
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <button class="btn btn-success" 
+                                        id="btn_password" onclick="salvarDadosSenha()" type="button">
+                                            Editar
+                                        </button>
+                                    </div>
+                                   
+                                </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+        </div>
+    </div>
+</section>

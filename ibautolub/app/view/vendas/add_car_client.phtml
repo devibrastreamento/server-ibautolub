@@ -1,0 +1,153 @@
+<div class="invisible" id="msg">
+    <div class="alert alert-danger" role="alert">
+       Veículo não encontrado
+    </div> 
+</div>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-agendamento"> 
+                <div class="painel-agendamento-title">
+                        <h5 class="display-5">Adicionar veículos</h5>
+                </div>
+                <div class="painel-agendamento-body">
+                    <div>
+                        <p>Caso seja clietne da 50 Rastreamento ou da iB Rastreamento, vincule seu cadastro com o sistema </p>
+                        <p>Para adicionar seu véiculo, digiete o IMEI dele, que se encontra no seu app de rastreamento</p>
+                    </div>
+                    <div class=""> 
+                    <button class="btn btn-primary mt-2" onclick="abrirPainelCarro()">
+                        Adiconar Veículo
+                    </button>
+                    <button class="btn btn-secondary mt-2" onclick="abrirPainelSystem()">
+                       Recuperar Dados Cadastrados
+                    </button>
+                    </div>
+                </div>
+                <hr>
+                <div class="invisible" id="component">
+                    <div class="painel-add-carr">
+                        <div class="card-add-carr">
+                            <div class="card-add-carr-title">
+                                <h5 class="display-5">Adicionar Veículo</h5>
+                                <div>
+                                    <button class="btn btn-danger" onclick="fecharPainelCarro()">
+                                        X
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-add-carr-body">
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <label for="">Nome Veículo</label>
+                                            <input type="text" class="form-control" placeholder="Peugeot 208" id="nome">
+                                            <div class="invalid-feedback">
+                                            Campo Vazio
+                                            </div> 
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="">Modelo</label>
+                                            <input type="text" class="form-control" placeholder="208" id="modelo">
+                                            <div class="invalid-feedback">
+                                            Campo Vazio
+                                            </div> 
+                                        </div>
+                                        <div class="col-auto mt-1">
+                                            <label for="">Placa</label>
+                                            <input type="text" class="form-control" placeholder="NPt-89ee" id="placa">
+                                            <div class="invalid-feedback">
+                                            Campo Vazio
+                                            </div> 
+                                        </div>
+                                        <div class="col-auto mt-1">
+                                            <label for="">Tipo</label>
+                                            <select class="form-control " id="tipo">
+                                                <option value="">Escolha um tipo</option>
+                                                <option value="carro">Carro</option>
+                                                <option value="moto">Moto</option>
+                                                <option value="onibus">ônibus</option>
+                                                <option value="caminhao">Caminhão</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                            Campo Vazio
+                                            </div> 
+                                        </div>
+                                        <div class="col-auto mt-1" >
+                                            <label for="">Cor</label>
+                                            <input type="text" class="form-control " placeholder="Prata" id="cor">
+                                            <div class="invalid-feedback">
+                                            Campo Vazio
+                                            </div> 
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-auto mt-1 mt-4">
+                                            <button class="btn btn-success" onclick='salvarVeiculo(<?=json_encode($this->view->id)?>)'>
+                                                Adicionar
+                                            </button>
+                                        </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="invisible" id="component_add_carr_system">
+                    <div class="painel-add-carr">
+                        <div class="card-add-carr">
+                        
+                            <div class="card-add-carr-title">
+                                <h5 class="display-5">Qual Sistema ?</h5>
+                                
+                                <div>
+                                    
+                                    <button class="btn btn-danger" onclick="fecharPainelSystem()">
+                                        X
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-add-carr-body">
+                                <div class="form-add">
+                                    <div class="row">
+                                        <div class="col-auto mt-2"> 
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="ibrastreamento" value="option1" checked>
+                                                <label class="form-check-label" for="ibrastreamento" >
+                                                    iB Rastreamento
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" type="radio" 
+                                            name="exampleRadios" id="50rastreamento" value="option2">
+                                            <label class="form-check-label" for="50rastreamento">
+                                            50Rastreamento
+                                            </label>
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="col-auto">
+                                            <label for="">Imei</label>
+                                            <input type="text" class="form-control" id="imei" placeholder="Imei do seu veículo">
+                                            <div class="invalid-feedback">
+                                           IMEI vazio
+                                            </div> 
+                                        </div>
+                                        <div class="col-auto mt-3">
+                                            <button class="btn btn-primary" onclick="adiconarVeiculoSystem(<?=$this->view->id?>)">
+                                                Adicionar
+                                            </button>
+                                        </div>
+                                    </div>
+                                
+                                
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div id="result_carr">
+
+                </div>
+        </div>
+    </div>
+</section>

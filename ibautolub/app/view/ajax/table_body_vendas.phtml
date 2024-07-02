@@ -1,0 +1,27 @@
+<div class="box-table-body">
+                  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome Produto</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Qtd </th>
+      <th scope="col">Tipo </th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){?>
+    <tr>
+      <th scope="row"><?= $i++?></th>
+      <td><?= $value['produto']?></td>
+      <td><?= $value['preco']?></td>
+      <td><?= $value['qtd']?></td>
+      <td><?= $value['tipo']?></td>
+    </tr>
+   <?php }?>
+    
+  </tbody>
+</table>
+                  </div>

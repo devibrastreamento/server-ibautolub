@@ -1,0 +1,37 @@
+<div class="box-manager-car">
+    <?php foreach($this->view->dados as $value){?>
+                    <div class="card-box-car">
+                        <div class="card-box-car-config">
+                            <div class="">
+                                <h5 class="display-5"><?= $value['modelo']?></h5>
+                            </div>
+                            <div class="">
+                            <div class="dropdown">
+                                
+                                    <img src="/img/menu_carr.png" alt="" class="dropdown-toggle" data-bs-toggle="dropdown" width="20">
+                                
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item"
+                                         onclick='abrirJanelaComParametros("detalhe_veiculo?id=<?=$value["id_veiculo"]?>","Detalhes","/app/fun/add_car_client?id=1&n=RWRpdGEgQ2xpZW50ZQ==&b=L2FwcC9mdW4vbWFuYWdlcl9jbGllbnQ/bj1SMlZ5Wlc1amFXRnlJRU5zYVdWdWRHVnomYj1MMkZ3Y0M5bWRXNHZhRzl0WlE9PQ==")'>
+                                        Detalhes
+                                    </a>
+                                    </li>
+                                    <li><a class="dropdown-item" onclick='removerVeiculo(<?= json_encode(base64_encode($value["id_veiculo"]))?>,<?=$value["id_cliente"]?>)'>Remover</a></li>
+                                    
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-box-car-body">
+                            <div class="config-placa">
+                                <p><?= $value['placa']?></p>
+                            </div>
+                            <div>
+                                <img src='/img/icon3d_<?=$value['tipo']?>.png' alt="" width="80">
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    
+</div>

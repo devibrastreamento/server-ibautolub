@@ -1,0 +1,73 @@
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-pesquisa">
+                <div>
+                    <h5 class="display-6">Pesquisar Funcionários</h5>
+                </div>
+                <div class="painel-pesquisa-body">
+                   <form action="">
+                   <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Nome do usuário" aria-describedby="basic-addon1">
+                    <button class="input-group-text" type="button">
+                        <img src="/img/pesquisar.png" alt="">
+                    </button>
+                    </div>
+                   </form>
+                </div>
+            </div>
+            <div class="painel-pesquisa mt-5">
+                <div>
+                    <h5 class="display-6">Resultado</h5>
+                </div>
+                <div class="painel-pesquisa-body">
+                <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Função</th>
+     
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['funcionario'] ?></td>
+      <td><?= $value['nome_profissao'] ?></td>
+      <td>
+        <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Ação
+  </button>
+  <ul class="dropdown-menu">
+      <li><button class="dropdown-item" 
+    onclick='abrirJanelaComParametros("edit_user?id_fun=<?=$value["id_funcionario"]?>","Editar Dados","<?= $this->view->link ?>")'>
+    Editar Dados</button >
+      </li>
+      <li><button class="dropdown-item" 
+    onclick='abrirJanelaComParametros("edit_password?id_fun=<?=$value["id_funcionario"]?>","Editar Senha","<?= $this->view->link ?>")'>
+    Editar Senha</button >
+      </li>
+    <?php if($value['status'] == 'Ativo'){?>
+    <li><a class="dropdown-item" href="/app/adm/desativar_usuario?id_fun=<?=$value["id_funcionario"]?>">Desativar</a></li>
+    <?php } else{?>
+    <li><a class="dropdown-item" href="/app/adm/ativar_usuario?id_fun=<?=$value["id_funcionario"]?>">Ativar</a></li>
+    <?php } ?>
+  </ul>
+</div>
+      </td>
+    </tr>
+    <?php } ?>
+  
+  </tbody>
+</table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

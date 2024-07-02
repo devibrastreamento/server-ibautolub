@@ -1,0 +1,89 @@
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-selecao-data">
+                    <div class="painel-selecao-data-title">
+                            <h5 class="display-5">Escolha uma data</h5>
+                    </div>
+                    <div class="painel-selecao-data-body">
+                           <div class="row">
+                               <div class="col-auto">
+                               <label for="">Data Inicial</label>
+                                <input type="date" class="form-control" id="dt_incial">
+                                <div class="invalid-feedback">
+                               Campo Vazio
+                                </div>
+                               </div>
+                               <div class="col-auto">
+                               <label for="">Data Final</label>
+                                <input type="date" class="form-control"  id="dt_final">
+                                 <div class="invalid-feedback">
+                               Campo Vazio
+                                </div>
+                               </div>
+                               <div class="mt-3">
+                                <button class="btn btn-secondary" onclick="solicitarPedidoData()">Solicitar</button>
+                               </div>
+                           </div>
+                           <div>
+                            <hr>
+                           </div>
+                           <div >
+                            <div>
+                                <ul>
+                                    <li><p> <b>Data de pesquisa</b> : <?= $this->view->data_inicial ?>/<?= $this->view->data_final?></p></li>
+                                    <li><p> <b>Receita</b> : R$<?= $this->view->somaVenda ?></p></li>
+                                </ul>
+                            </div>
+                            <h5>Vendas Efetuadas</h5>
+                           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Dinheiro</th>
+      <th scope="col">PIX</th>
+      <th scope="col">Cart/Débito</th>
+      <th scope="col">Cart/Crédito</th>
+      <th scope="col">Boleto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><?= $this->view->dados['dinheiro']?></td>
+      <td><?= $this->view->dados['pix']?></td>
+      <td><?= $this->view->dados['debito']?></td>
+      <td><?= $this->view->dados['credito']?></td>
+      <td><?= $this->view->dados['boleto']?></td>
+    </tr>
+   
+  </tbody>
+</table>
+                           </div>
+                           <div >
+                            <h5>Qtd de Venda por: </h5>
+                           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Dinheiro</th>
+      <th scope="col">PIX</th>
+      <th scope="col">Cart/Débito</th>
+      <th scope="col">Cart/Crédito</th>
+      <th scope="col">Boleto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><?= $this->view->qtdDados ['dinheiro']?></td>
+      <td><?= $this->view->qtdDados ['pix']?></td>
+      <td><?= $this->view->qtdDados ['debito']?></td>
+      <td><?= $this->view->qtdDados ['credito']?></td>
+      <td><?= $this->view->qtdDados ['boleto']?></td>
+    </tr>
+   
+  </tbody>
+</table>
+                           </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>

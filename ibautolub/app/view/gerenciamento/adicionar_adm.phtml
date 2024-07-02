@@ -1,0 +1,63 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<div class="apagar" id="senha_verificar">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div>
+<section>
+<div class="painel-formulário">
+        <form id="form_adm">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome_adm" name="nome" placeholder="fulano">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email_adm" name="email" placeholder="fulano@gmail.com">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="login_adm" name="login" placeholder="fulano_1" onchange="verificarAdm()">
+                        <div class="invalid-feedback">
+                            Usuário Indisponível
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Permisão de Cadastro</label>
+                        <select name="permissao" id="permissao" class="form-control">
+                            <option value="">Escolha uma opção</option>
+                            <option value="S">Sim</option>
+                            <option value="N">Não</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha_adm" name="senha" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="senha2_adm" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_salvar_adm" onclick="salvarADm()" >
+                    Enviar
+                </button>
+                <button type="button" class="btn btn-danger">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+    </section>
