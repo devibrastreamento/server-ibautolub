@@ -36,7 +36,7 @@ class Vendas extends Model{
         $stmt->bindValue(':tipo_pagamento',$this->__get('tipo_pagamento'));
         $stmt->bindValue(':key_buy',$this->__get('key_buy'));
         $stmt->execute();
-        header('location:/app/fun/sucesso?tipo=cadastrar_venda');
+        header('location:/app/fun/imprimir_nota_nao_fiscal?key_buy='.$this->__get('key_buy'));
        }catch(\PDOException $e){
         header('location:/app/fun/erro?tipo=cadastrar_venda&msg='.$e->getMessage());
        }
@@ -65,7 +65,7 @@ class Vendas extends Model{
      }
     
     public function getAllVendaCliente($id){
-        $sql = "SELECT id_venda,data_venda,total,chave_venda,key_buy
+        $sql = "SELECT id_venda,data_venda,total,chave_venda,key_buy,tipo_pagamento
         FROM vendas WHERE id_cliente = $id";
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();

@@ -68,6 +68,14 @@ class Veiculo extends Model{
         $dados = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $dados;
     }
+    public function getVeiculoPreview($id){
+        $sql = "SELECT id_veiculo,tipo,placa,modelo
+        FROM veiculo WHERE id_cliente = $id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $dados;
+    }
     public function getVeiculoDetalhe($id){
         $sql = "SELECT id_veiculo,id_cliente,tipo,placa,marca,modelo,cor,hodometro,data_troca_oleo,update_troca_oleo
         FROM veiculo WHERE id_veiculo = $id";

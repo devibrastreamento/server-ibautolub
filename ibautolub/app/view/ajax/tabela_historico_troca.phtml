@@ -1,0 +1,33 @@
+<div>
+                    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Funcionario</th>
+      <th scope="col">Antigo</th>
+      <th scope="col">Novo</th>
+      <th scope="col">Diferença</th>
+      <th scope="col">qtd</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){
+    ?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['nome']?></td>
+      <td><?= $value['funcionario']?></td>
+      <td><?= $value['produto_antigo']?></td>
+      <td><?= $value['produto_novo']?></td>
+      <td><?= $value['diferenca']?></td>
+      <td><?= $value['qtd']?></td>
+      <td><?= $value['data_troca']?></td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+                    </div>

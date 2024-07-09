@@ -1180,6 +1180,9 @@ function escolherTipoLog(){
         case 'vendas':
             getAjaxGenerico('vendas');
             break;
+        case 'troca':
+                getAjaxGenerico('troca');
+                break;    
 
     }
 }

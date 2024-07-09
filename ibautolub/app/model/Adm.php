@@ -45,7 +45,7 @@ class Adm extends Model{
         }
     }
     public function verificarUsuario($login){
-        $sql =  "SELECT id_adm,nome,login,senha,token,status_ativo FROM adm WHERE login = '$login'";
+        $sql =  "SELECT id_adm,nome,login,senha,token,status_ativo,permissao_cadastro FROM adm WHERE login = '$login'";
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
         $dados = $stmt->fetchAll(\PDO::FETCH_ASSOC);       

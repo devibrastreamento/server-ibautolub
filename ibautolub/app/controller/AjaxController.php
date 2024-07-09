@@ -227,6 +227,14 @@ class AjaxController extends Action
         $this->view->dados = $log->listagemErroSistema();
         $this->render('tabela_historico_erro', $this->layout_ajax);
     }
+    public function historicoTroca()
+    {
+      
+        $this->verificarUsuarioLogado();
+        $troca = Container::getModel('Troca');
+        $this->view->dados = $troca->getAllTroca();
+        $this->render('tabela_historico_troca', $this->layout_ajax);
+    }
     public function verificarUsuarioLogado()
     {
         session_start();

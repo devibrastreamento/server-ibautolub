@@ -94,7 +94,7 @@ $dados = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 return $dados;
     }
     public function listagemProdutoEstoque($inicio,$fim){
-        $sql = "SELECT 
+        $sql = "SELECT DISTINCT
             p.produto,p.preco,p.qtd 'estoque',h.qtd 'vendida'
             FROM produtos p
             INNER JOIN historico h ON h.id_produto = p.id_produto

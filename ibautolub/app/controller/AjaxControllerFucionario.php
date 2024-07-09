@@ -73,6 +73,29 @@ class AjaxControllerFucionario extends Action{
        
         $this->render('resulta_veiculos',$this->layout_ajax);
     }
+    public function historicoVendaFuncionario()
+    {
+        $this->verificarUsuarioLogado();
+        $venda = Container::getModel('Vendas');
+        $this->view->dados = $venda->getAllVenda();
+        $this->render('tabela_historico_vendas', $this->layout_ajax);
+        
+    }
+    public function historicoTrocaFuncionario()
+    {
+        $this->verificarUsuarioLogado();
+        $troca = Container::getModel('Troca');
+        $this->view->dados = $troca->getAllTroca();
+        $this->render('tabela_historico_troca', $this->layout_ajax);
+        
+    }
+    public function listagemHistorico()
+    {
+        $this->verificarUsuarioLogado();
+        
+        $this->render('listagem_troca_produtos', $this->layout_ajax);
+        
+    }
     public function verificarUsuarioLogado(){
         session_start();
         if( $_SESSION['login_fun'] != 'S'){

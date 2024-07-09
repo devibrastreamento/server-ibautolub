@@ -834,3 +834,217 @@ function removerVeiculo(id,id_cliente){
     }
     xml.send()
 }
+function escolherTipoLog(){
+    let opcao = document.getElementById('opcao_tipo')
+    switch(opcao.value){
+        case 'erro':
+            getAjaxGenerico('erro')
+            break
+        case 'sistema':
+            getAjaxGenerico('sistema')
+            break
+        case 'vendas':
+            getAjaxGenerico('vendas');
+            break;
+        case 'troca':
+            getAjaxGenerico('troca');
+            break;
+
+    }
+}
+function getAjaxGenerico(tipo){
+    let url = localhost+'/app/fun/ajax/tabela_funcionario_'+tipo
+    let div = document.getElementById('tabela_conteudo')
+    let xml = new XMLHttpRequest();
+    xml.open('get',url)
+    xml.onreadystatechange = ()=>{
+        if(xml.readyState == 4 && xml.status == 200){
+            let dados = xml.responseText;
+            div.innerHTML = dados
+           
+        }
+    }
+    xml.send()
+}
+function selecaoOpcao(id){
+    let id_opcao = document.getElementById(id)
+    switch(id){
+        case 'cadastro_ok':
+            let opcao = document.getElementById('cadastro_nao_ok')
+            opcao.checked = false
+            ativarAba(id)
+            break;
+        case 'cadastro_nao_ok':
+            let opcao2 = document.getElementById('cadastro_ok')
+            opcao2.checked = false
+            ativarAba(id)
+            break;
+    }
+}
+function ativarAba(tipo){
+    let cliente_ok = document.getElementById('cliente_ok')
+    let cliente_nao_ok = document.getElementById('cliente_nao_ok')
+    switch(tipo){
+        case 'cadastro_ok':
+            cliente_ok.className = "d-block"
+            cliente_nao_ok.className = "d-none"
+            break;
+        case 'cadastro_nao_ok':
+             cliente_ok.className = "d-none"
+            cliente_nao_ok.className = "d-block"
+            break;
+    }
+}
+function previewInfo(){
+    let cadastro_nao_ok = document.getElementById('cadastro_nao_ok')
+    let cadastro_ok = document.getElementById('cadastro_ok')
+    if(cadastro_nao_ok.checked){
+        let btn = document.getElementById('salvar_cliente_sem_nome')
+        let nome = document.getElementById('nome_cliente_novo')
+        let novo = document.getElementById('produto_cliente_novo').value
+        let antigo = document.getElementById('produto_cliente_antigo').value
+        let qtd = document.getElementById('qtd').value
+        
+        if(nome.value == "" || novo.value == "" || antigo == ""){
+            alert('vazio campos')
+        } else{
+        
+        let dados_novo = novo.split('/')
+        let dados_antigo = antigo.split('/')
+        console.log(dados_antigo)
+        let dados = {
+            "nome" :nome.value,
+            "novo":dados_novo[0],
+            "preco_novo":dados_novo[1],
+            "antigo":dados_antigo[0],
+            "preco_antigo":dados_antigo[1],
+            "qtd":qtd
+        }
+        tratarDados(dados)
+    }
+    }else{
+        let n1 = document.getElementById('selecao_nome')
+        let n2 = document.getElementById('novo_produto')
+        let n3 = document.getElementById('antigo_produto')
+      
+ 
+        let qtd = document.getElementById('qtd').value
+        if(n1.value == "" || n2.value == "" || n3.value == ""){
+
+         alert('campo vazioo')
+
+        }else{
+            let nome = document.getElementById('selecao_nome').value
+            let novo = document.getElementById('novo_produto').value
+            let antigo = document.getElementById('antigo_produto').value
+        let btn = document.getElementById('salvar_cliente_nome')
+        let dados_novo = novo.split('/')
+        let dados_antigo = antigo.split('/')
+        let dados = {
+            "nome" :nome,
+            "novo":dados_novo[0],
+            "preco_novo":dados_novo[1],
+            "antigo":dados_antigo[0],
+            "preco_antigo":dados_antigo[1],
+            "qtd":qtd
+        }
+        tratarDados(dados)
+     }
+    }
+}
+function tratarDados(dados){
+    console.log(dados)
+    let div = document.getElementById('result_troca')
+    div.className = "d-block"
+    let btn = document.getElementById('btn_salvar_dados')
+    let nome = document.getElementById('nome_cliente').innerText = dados.nome
+    let produto_novo = document.getElementById('produto_novo').innerText = dados.novo
+    let produto_antigo = document.getElementById('produto_antigo').innerText = dados.antigo
+    let total = document.getElementById('total').innerText = dados.preco_antigo +"-"+ dados.preco_novo+" = "+(parseFloat(dados.preco_novo) - (parseFloat(dados.preco_antigo)*dados.qtd))
+    let diferenca = document.getElementById('diferenca').innerText = (parseFloat(dados.preco_novo)  -  (parseFloat(dados.preco_antigo)*dados.qtd))
+    let valor = document.getElementById('valor_entrada')
+    let qtd = document.getElementById('qtd_recuperada').innerText = dados.qtd
+    valor.value = dados.preco_novo
+        
+
+}
+function enviarDadosTroca(){
+    let nome = document.getElementById('nome_cliente')
+    let produto_novo = document.getElementById('produto_novo')
+    let produto_antigo = document.getElementById('produto_antigo')
+    let total = document.getElementById('total')
+    let diferenca = document.getElementById('diferenca')
+    let valor = document.getElementById('valor_entrada')
+    let qtd = document.getElementById('qtd_recuperada')
+    form = new FormData();
+    form.append('nome',nome.innerText)
+    form.append('produto_novo',produto_novo.innerText)
+    form.append('produto_antigo',produto_antigo.innerText)
+    form.append('total',total.innerText)
+    form.append('total',total.innerText)
+    form.append('diferenca',diferenca.innerText)
+    form.append('qtd',qtd.innerText)
+    form.append('valor',valor.value)
+    let div = document.getElementById('result_troca')
+ 
+    let xml = new XMLHttpRequest()
+    let url = localhost+"/ibautolub/public/api/v1/save/fun/save/troca"
+    xml.open('POST',url)
+    xml.onreadystatechange = ()=>{
+        if(xml.readyState == 4 && xml.status == 200){
+         let dados = xml.responseText
+        let json = JSON.parse(dados)
+        console.log(json)
+        if(json.result == true){
+            msgSucesso('msg')
+            console.log('ok')
+            div.className = "d-none"
+        }else{
+            msgErro('msg_erro')
+            div.className = "d-none"
+        }
+        }
+    }
+    xml.send(form)
+
+}
+function msgSucesso(id){
+    let msg = document.getElementById(id)
+    let cron = 3000
+    let i=0;
+    msg.className = "mostrar"
+    const temp = setInterval(()=>{
+        
+        let i=0;
+        while( i < cron){
+           
+            if( i==2500){
+                msg.className = "apagar"
+                clearInterval(temp)
+
+            }
+            i++
+        }
+    },cron)
+   
+}
+function msgErro(id){
+    let msg = document.getElementById(id)
+    let cron = 3000
+    let i=0;
+    msg.className = "mostrar"
+    const temp = setInterval(()=>{
+        
+        let i=0;
+        while( i < cron){
+           
+            if( i==2500){
+                msg.className = "apagar"
+                clearInterval(temp)
+                location.reload()
+            }
+            i++
+        }
+    },cron)
+    
+}

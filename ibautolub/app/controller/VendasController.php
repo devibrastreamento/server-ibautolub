@@ -7,6 +7,7 @@ class VendasController extends Action{
     private $layout_vendas = 'layout_vendas';
     private $layout_default = 'layout_default_vendas';
     private $layout_carr = 'layout_ajax_load_default_carr_fun';
+    private $layout_impressao = 'layout_impressao';
     public function home(){
         $this->verificarUsuarioLogado();
     
@@ -144,7 +145,31 @@ class VendasController extends Action{
         $this->render('detalhe_veiculo',$this->layout_carr);
        
     }
-   
+    public function imprimirDados(){
+        $this->verificarUsuarioLogado();
+        $this->view->back =base64_decode($_GET['b']);
+        $this->view->nome =base64_decode($_GET['n']);
+        $this->render('imprimir_nota_nao_fiscal',$this->layout_impressao);
+       
+    }
+    public function historicoVendasFuncionario(){
+        $this->verificarUsuarioLogado();
+        $this->view->back =base64_decode($_GET['b']);
+        $this->view->nome ="Histórico";
+        $this->render('historico_vendas',$this->layout_default);
+       
+    }
+    public function trocaDevolucao(){
+        $this->verificarUsuarioLogado();
+        $this->view->back =base64_decode($_GET['b']);
+        $clientes =  Container::getModel('Cliente');
+        $produto =  Container::getModel('Produto');
+        $this->view->produtos = $produto->listagemProduto();
+        $this->view->dados_cliente = $clientes->getAllClientes();
+        $this->view->nome ="Troca";
+        $this->render('troca_devolucao',$this->layout_default);
+       
+    }
    
     public function verificarUsuarioLogado(){
         session_start();

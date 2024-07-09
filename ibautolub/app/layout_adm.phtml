@@ -27,6 +27,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/app/adm/home">Home</a>
           </li>
+          <?php if($_SESSION['permissao'] == 'S') {?>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" 
             href="/app/adm/cadastro_usuario?n=Q2FkYXN0cmFyIFVzdeFyaW9z&b=L2FwcC9hZG0vaG9tZQ==">
@@ -51,12 +52,14 @@
             Contas a pagar
             </a>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" 
             href="/app/adm/report?n=UmVwb3J0&b=L2FwcC9hZG0vaG9tZQ==">
               Relatórios
             </a>
           </li>
+          <?php if($_SESSION['permissao'] == 'S') {?>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" 
             href="/app/adm/form_add_funcao?n=Tm92bw==&b=L2FwcC9hZG0vaG9tZQ==">
@@ -75,18 +78,21 @@
             Adicionar Qtd Produtos
             </a>
           </li>
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" 
             href="/app/adm/history?n=QWRpY2lvbmFyIFF0ZA===&b=L2FwcC9hZG0vaG9tZQ==">
             Histórico
             </a>
           </li>
+          <?php if($_SESSION['permissao'] == 'S') {?>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" 
             href="/app/adm/edit_profile?id_user=<?=$_SESSION['id']?>&n=RWRpdGFyIFBlcmZpbA===&b=L2FwcC9hZG0vaG9tZQ==">
               Editar Perfil
             </a>
           </li>
+          <?php } ?>
           
           
           <li class="nav-item">

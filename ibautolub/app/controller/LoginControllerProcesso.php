@@ -20,6 +20,7 @@ class LoginControllerProcesso extends Action{
                         $_SESSION['nome'] = $value['nome'];
                         $_SESSION['id'] = $value['id_adm'];
                         $_SESSION['login'] = 'S';
+                        $_SESSION['permissao'] = $value['permissao_cadastro'];
                        
                         header('location:/app/adm/home');
                     }else{

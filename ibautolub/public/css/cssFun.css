@@ -545,3 +545,56 @@ nav{
     display: flex;
     align-items: center;
 }
+.view-despesas{
+   
+    margin: 3rem;
+    padding: 1rem;
+}
+.view-despesas-title h5{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.box-painel-devolucao{
+    margin: 3rem;
+   
+    width: auto;
+    padding: 1rem;
+}
+.box-painel-devolucao-body{
+    margin: 1rem;
+    display: flex;
+ 
+}
+.btn-salvar{
+    border: 1px solid;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+   
+}
+.custom{
+    border: 2px solid #85162d; /* Borda personalizada */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #f8f9fa; /* Cor de fundo */
+    color: #495057; /* Cor do texto */
+}
+.custom:focus {
+    outline: 5px solid #fdcecf;
+    
+    
+}
+.painel-view-troca input{
+    border: none;
+    border-bottom: 1px solid red;
+    border-color: #cccccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+
+
+
+
+

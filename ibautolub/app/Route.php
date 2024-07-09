@@ -19,6 +19,13 @@ class Route extends BootStrap{
      */
    
     public function initRoute(){
+         // Rotas  Login---------------------------------------------------------------------------------------------------------Teste Porta------------------------------------------------
+        $route['teste'] = [
+            'route'=>'/teste',
+            'controller'=>'IndexController',
+            'action'=>'teste'
+        ];
+        // Rotas  Login---------------------------------------------------------------------------------------------------------Teste Porta - FIM------------------------------------------------
         $route['home'] = [
             'route'=>'/',
             'controller'=>'IndexController',
@@ -120,6 +127,16 @@ class Route extends BootStrap{
             'route'=>'/app/fun/detalhe_veiculo',
             'controller'=>'VendasController',
             'action'=>'detalheVeiculoFuncionario'
+        ];
+        $route['historicoVendasFuncionario'] = [
+            'route'=>'/app/fun/historico_vendas',
+            'controller'=>'VendasController',
+            'action'=>'historicoVendasFuncionario'
+        ];
+        $route['trocaDevolucao'] = [
+            'route'=>'/app/fun/troca_devolucao',
+            'controller'=>'VendasController',
+            'action'=>'trocaDevolucao'
         ];
         
         
@@ -517,6 +534,11 @@ class Route extends BootStrap{
             'controller'=>'AjaxController',
             'action'=>'historicoErro'
         ];
+        $route['historicoTroca'] = [
+            'route'=>'/app/fun/ajax/tabela_troca',
+            'controller'=>'AjaxController',
+            'action'=>'historicoTroca'
+        ];
          // -----------------------------------------------------------Ajac Funcionario
         $route['visualizarTabelProduto'] = [
             'route'=>'/app/fun/ajax/visualizar_tabela_produto',
@@ -545,6 +567,21 @@ class Route extends BootStrap{
             'route'=>'/app/fun/ajax/get_carr',
             'controller'=>'AjaxControllerFucionario',
             'action'=>'recuperarVeiculo'
+        ];
+        $route['historicoVendaFuncionario'] = [
+            'route'=>'/app/fun/ajax/tabela_funcionario_vendas',
+            'controller'=>'AjaxControllerFucionario',
+            'action'=>'historicoVendaFuncionario'
+        ];
+        $route['historicoTrocaFuncionario'] = [
+            'route'=>'/app/fun/ajax/tabela_funcionario_troca',
+            'controller'=>'AjaxControllerFucionario',
+            'action'=>'historicoTrocaFuncionario'
+        ];
+        $route['listagemHistorico'] = [
+            'route'=>'/app/fun/ajax/listagem_historico',
+            'controller'=>'AjaxControllerFucionario',
+            'action'=>'listagemHistorico'
         ];
         
         // Ajax Cliente--------------------------------------------------------
@@ -610,6 +647,12 @@ $route['erroInfoFun'] = [
     'route'=>'/app/fun/sucesso',
     'controller'=>'SucessoControllerFuncionario',
     'action'=>'sucessoInfoFun'
+];
+ // Rotas Impressão nota Fiscal---------------------------------------------------------------------------------------------------------
+$route['sucessoInfoFun'] = [
+    'route'=>'/app/fun/imprimir_nota_nao_fiscal',
+    'controller'=>'VendasController',
+    'action'=>'imprimirDados'
 ];
 
 

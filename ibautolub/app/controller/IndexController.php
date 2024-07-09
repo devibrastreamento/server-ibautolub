@@ -16,6 +16,13 @@ class IndexController extends Action{
         echo 'ola mundo';
         $this->render('sobrenos','layout');
     }
+    public function teste(){
+
+        echo 'home';
+        
+
+        $this->render('indexs','layouts');
+    }
     
     
     

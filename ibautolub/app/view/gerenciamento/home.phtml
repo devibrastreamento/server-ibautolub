@@ -11,6 +11,7 @@
                             <div class="card-opcao-title">
                                 <!-- Senm rtitulo -->
                             </div>
+                            <?php if($_SESSION['permissao'] == 'S') {?>
                             <div class="card-opcao-body" 
                             onclick='abrirJanela("cadastro_usuario","Gerencimento","/app/adm/home")'>
                                 <div class="config-img">
@@ -45,6 +46,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                         <div class="card-opcao"
                         onclick='abrirJanela("report","Report","/app/adm/home")'
                         >

@@ -175,7 +175,35 @@ if($retorno){
 return $response->withJson($msg);
 
 });
-// ------------------------------------------Listagem de Compras Realizadas -----------------------------------
+// ------------------------------------------Listagem Veículos Preview -----------------------------------
+$app->get('/v1/client/list_preview/carr/{id}', function ($request, $response, $args) {
+    $id = $args['id'];
+    $veiculo = Container::getModel("Veiculo");
+    $dados = $veiculo->getVeiculoPreview($id);
+    
+    $msg = [];
+    if(count($dados) > 0 ){
+        $msg = ['result'=>true,'qtd'=>count($dados),'dados'=>$dados];
+    }else{
+        $msg = ['result'=>false,'qtd'=>'0','dados'=>'vazio'];
+    }
+    return $response->withJson($msg);
+    
+    });
+// ------------------------------------------Listagem Veículos -----------------------------------
+$app->get('/v1/client/list/carr/{id}', function ($request, $response, $args) {
+    $id = $args['id'];
+    $veiculo = Container::getModel("Veiculo");
+    $dados = $veiculo->getVeiculo($id);
+    $msg = [];
+    if(count($dados) > 0 ){
+        $msg = ['result'=>true,'dados'=>$dados];
+    }else{
+        $msg = ['result'=>false,'dados'=>'null'];
+    }
+    return $response->withJson($msg);
+    
+    });
 
 // ------------------------------------------Verificação de logins de funcionarios -----------------------------------
 $app->get('/v1/login/fun/{login}', function ($request, $response, $args) {
@@ -465,6 +493,31 @@ $app->post('/v1/update/adm/produto/qtd', function ($request, $response, $args) {
         $msg = ['result'=>false];
     }
     return $response->withJson($msg);
+    
+}); 
+// ------------------------------------------Salvar Troca dados-----------------------------------   
+$app->post('/v1/save/fun/save/troca', function ($request, $response, $args) {
+    $troca = Container::getModel('Troca');
+    session_start();
+    $date = date('Y-m-d h:i:s');
+    $troca->__set('nome_cliente',$_POST['nome']);
+    $troca->__set('funcionario',$_SESSION['nome_fun']);
+    $troca->__set('produto_novo',$_POST['produto_novo']);
+    $troca->__set('produto_antigo',$_POST['produto_antigo']);
+    $troca->__set('diferenca',$_POST['diferenca']);
+    $troca->__set('qtd',$_POST['qtd']);
+    $troca->__set('entrada',$_POST['valor']);
+    $troca->__set('data_troca',$date);
+    $dados = $troca->salvarDadosTroca();
+    $msg = "";
+    if($dados){
+        $msg = ['result'=>true];
+    }else{
+        $msg = ['result'=>false];
+    }
+    return $response->withJson($msg);
+
+    
     
 }); 
 // Run app

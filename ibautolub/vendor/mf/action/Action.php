@@ -16,7 +16,7 @@ class Action{
        if(!file_exists($layout.'.phtml')){
             require 'ibautolub/app/'.$layout.'.phtml';
        }else{
-            require '../app/404.phtml';
+            require 'ibautolub/app/404.phtml';
        }
     }
     protected function content(){
