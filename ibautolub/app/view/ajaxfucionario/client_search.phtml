@@ -1,0 +1,61 @@
+<div class="painel-result-search">
+                <div class="painel-result">
+                    <?php foreach( $this->view->dados as $value){?>
+                    <div class="card-box-result">
+                        <div class="div-icone">
+                        <div class="dropdown">
+                        <img src="/ibautolub/public/img/pointer.png" alt="" width="10" data-bs-toggle="dropdown">
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" 
+                                    onclick='abrirJanelaComParametros("edit_client?id=<?= $value["id_cliente"]?>","Edita Cliente","/app/fun/manager_client?n=R2VyZW5jaWFyIENsaWVudGVz&b=L2FwcC9mdW4vaG9tZQ==")'
+                                    >
+                                        Editar Dados
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                    onclick='abrirJanelaComParametros("edit_password_client?id=<?= $value["id_cliente"]?>","Edita Cliente","/app/fun/manager_client?n=R2VyZW5jaWFyIENsaWVudGVz&b=L2FwcC9mdW4vaG9tZQ==")'>
+                                    Editar Senha
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                    onclick='abrirJanelaComParametros("add_car_client?id=<?= $value["id_cliente"]?>","Edita Cliente","/app/fun/manager_client?n=R2VyZW5jaWFyIENsaWVudGVz&b=L2FwcC9mdW4vaG9tZQ==")'>
+                                   Adicionar Veículo
+                                    </a>
+                                </li>
+                                <?php if($value['status_ativo'] == 1){?>
+                                <li>
+                                    <a class="dropdown-item" 
+                                    onclick='desativarUsuario(<?= $value["id_cliente"]?>)'>
+                                    Desativar
+                                     </a>
+                                </li>
+                                <?php }else{?>
+                                <li>
+                                    <a class="dropdown-item"
+                                    onclick='ativarUsuario(<?= $value["id_cliente"]?>)'>
+                                        Ativar
+                                    </a>
+                                </li>
+                                <?php }?>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="card-box-result-body">
+                                <div class="card-box-result-body-nome">
+                                    <h5 class="display-5"><?= $value['nome']?></h5>
+                                </div>
+                                <div class="card-box-result-body-nome">
+                                   <p> Pontuação :<?= $value['pontuacao']?></p>
+                                </div>
+                                <div class="card-box-result-body-nome">
+                                <p> Veículos : <?= $value['modelo']?></p>
+                                </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    
+                </div>
+</div>

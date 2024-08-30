@@ -1,0 +1,39 @@
+<section class="">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-agendamento">
+                <div class="painel-agendamento-title">
+                    <h5 class="display-5">Histórico de Compras Realizada</h5>
+                </div>
+                <div class="painel-agendamento-body">
+                    <div class="painel-pesquisa">
+                        <div class="row">
+                            <div class="col-auto">
+                                <label for="">Data Inicial</label>
+                                <input type="date" class="form-control " id="dt_inicial">
+                                <div class="invalid-feedback">
+                                    Selecione uma data Inicial
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <label for="">Data Final</label>
+                                <input type="date" class="form-control" id="dt_final">
+                                <div class="invalid-feedback">
+                                    Selecione uma data Final
+                                </div>
+                            </div>
+                            <div class="col-auto mt-4"> 
+                                <button class="btn btn-success" onclick='pesquisarCompraData(<?=$_SESSION["id_client"]?>)'>Pesquisar</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div id="conteudo_painel">
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+<div>
+                    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Funcionario</th>
+      <th scope="col">Valor Total</th>
+      <th scope="col">Recebido</th>
+      <th scope="col">Data</th>
+      <th scope="col">codigo Venda</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){
+    ?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['cliente']?></td>
+      <td><?= $value['funcionario']?></td>
+      <td><?= $value['total']?></td>
+      <td><?= $value['valor_recebido']?></td>
+      <td><?= $value['data_venda']?></td>
+      <td><?= $value['chave_venda']?></td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+                    </div>

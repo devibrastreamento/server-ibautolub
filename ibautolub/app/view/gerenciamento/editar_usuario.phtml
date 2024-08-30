@@ -1,0 +1,60 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<div class="apagar" id="senha_verificar">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div>
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+        <form id="form_cadastro_funcionario">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" 
+                        placeholder="Nome usuário" value="<?= $this->view->dadosFun['nome']?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Fulano" value="<?= $this->view->dadosFun['email']?>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Função</label>
+                        <select name="profissao" id="profissao" class="form-control">
+                            <option 
+                            value="<?= $this->view->dadosFun['id_profissao']?>">
+                            função Atual:<?= $this->view->dadosFun['nome_profissao']?>
+                            </option>
+                            <?php foreach($this->view->dados as $value){?>
+                            <option value="<?= $value['id_profissao']?>"><?= $value['nome_profissao']?></option>
+                          
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Descrição </label>
+                        <textarea name="descricao" id="descricao" class="form-control"
+                                ><?= $this->view->dadosFun['descricao_atividade']?></textarea>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_adiconar_funcionario" onclick='alterarFuncionario(<?= $_GET["id_fun"]?>)'>
+                    Alterar
+                </button>
+                
+            </div>
+        </form>
+        </div>
+    </div>
+</section>

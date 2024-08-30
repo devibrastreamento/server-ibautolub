@@ -1,0 +1,65 @@
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-dados-pesquisa">
+                <div>
+                    <h5> Dados de Estoque</h5>
+                </div>
+                <div class="card-dados-pesquisa-body">
+                    <ul class="">
+                        <li> <b>Data Pesquisada :</b><?= $_GET['dt_inicial']?> / <?= $_GET['dt_final']?> </li>
+                        
+                    </ul>
+                    <div>
+                        <div>
+                          <h5>Estoque</h5>
+                        </div>
+                        <div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Tipo</th>
+                              <th scope="col">Qtd Produtos Disponível</th>
+                              <th scope="col">Qtd Produtos Vendidos</th>
+                              <th scope="col">Média Vendia no Mês</th>
+                              <th scope="col">Ação</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php foreach($this->view->dados as $value) {?>
+                            <tr>
+                              <td>Estoque</td>
+                              <td><?= $value['qtd_disponivel']?></td>
+                              <td><?= $value['qtd_vendida']?></td>
+                              <td><?= $value['media']?></td>
+                              
+                              <td>
+                                <button class="btn btn-primary" onclick='exibiListagemEstoque()'>
+                                  Visualizar Relatório
+                                </button>
+                                <button class="btn btn-secondary" onclick='downloadDadosEstoque()'>
+                                 Download
+                                </button>
+                              </td>
+                            </tr>
+                            <?php } ?>
+                           
+                          </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-solicitacao-api invisible" id="box_table_estoque">
+                  
+                  <button class="btn btn-danger" onclick="fecharTabelaEstoque()">
+                    X
+                  </button>
+
+        <div class="box-table" id="table_body_estoque">
+                  
+        </div>
+        </div>
+    </div>
+</section>

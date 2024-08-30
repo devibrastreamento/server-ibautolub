@@ -1,0 +1,77 @@
+<div id="painel_geral">
+<div class="painel-resultado">
+    <div class="painel-resultado-title">
+        <h5 class="display-5">Resultado Pesquisa</h5>
+        <div>
+            <button class="btn btn-danger" onclick="fecharPainelProduto()">
+                X
+            </button>
+        </div>
+    </div>
+    <p></p>
+    <div class="painel-resultado-body">
+        <div class="local-tabela">
+        <table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Produto/Servico</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Preço</th>
+      
+      <th scope="col">Estoque</th>
+      <th scope="col">Qtd</th>
+
+      
+    </tr>
+  </thead>
+  <tbody>
+  <?php 
+  $i=1;
+    foreach($this->view->dados as $value){
+
+    ?>
+    <tr id="test_<?=$value['id_produto']?>">
+      <th scope="row"><?= $i++?></th>
+      <td><?= $value['produto']?></td>
+      <td><?= $value['tipo']?></td>
+      <td><?= $value['preco']?></td>
+      <td ><?= $value['qtd']?></td>
+      <?php if($value['tipo'] == 'produto') {?>
+      <td>
+        <div class="config-qtd"> 
+          <img src="/ibautolub/public/img/add.png" alt="" width="20" 
+          onclick="aumentarQtd(<?=$value['id_produto']?>,<?=$value['qtd']?>)">
+          <?php if($value['tipo'] == 'produto'){?>
+          <span class="text-success"id="result_<?=$value['id_produto']?>">0</span>
+          <?php }else{?>
+            <span class="text-success"id="result_<?=$value['id_produto']?>">1</span>
+            <?php }?>
+          <img src="/ibautolub/public/img/menos.svg" alt="" width="20" 
+          onclick="retirarQtd(<?=$value['id_produto']?>,<?=$value['qtd']?>)"> 
+        </div>
+      </td>
+      <?php }else{ ?>
+        <td>
+        <div class="config-qtd"> 
+          
+          <span class="text-success"id="result_<?=$value['id_produto']?>">1</span>
+         
+        </div>
+      </td>
+      <?php } ?>
+      <td>
+        <button class="btn btn-primary" id="btn_<?=$value['id_produto']?>" 
+          onclick='enviarDadosTabelaListagem(<?= $value["id_produto"]?>)'>
+          Adicionar
+        </button>
+      </td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
+</div>

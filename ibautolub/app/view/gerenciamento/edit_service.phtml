@@ -1,0 +1,51 @@
+<div class="apagar" id="msg_edit_service">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+
+
+<section>
+<div class="painel-formulário">
+    <p> Editar  Serviço</p>
+   <p> <span class="text-danger">*</span> É obrigatório</p>
+   
+    
+        <form id="form_edit_service">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome do Serviço<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_name_service" name="edit_name_service" placeholder="Troca de Óleo"
+                        value="<?= $this->view->dados['servico']?>"
+                        >
+                    </div>
+                    
+                   
+                    
+               
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Preço<span class="text-danger">*</span></label>
+                        <input type='number' step='0.01' class="form-control" placeholder='0,00' 
+                        id="edit_price_service" name="edit_price_service"
+                        value="<?= $this->view->dados['preco']?>"
+                        />
+                        
+                    </div>
+                    
+                   
+                    
+               
+                </div>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_editar_servico" onclick="editarServico(<?= $this->view->id?>)">
+                    Cadastrar
+                </button>
+                
+            </div>
+        </form>
+    </div>
+    </section>

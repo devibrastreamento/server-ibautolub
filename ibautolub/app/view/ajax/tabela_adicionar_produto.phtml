@@ -1,0 +1,36 @@
+<div>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Marcador</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Qtd em Estoque</th>
+                        <th scope="col">Qtd Enviar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $i=1;
+                        foreach( $this->view->dados as $value){?>
+                        <tr>
+                        <td><?= $i++ ?></td>
+                        <td> <input type="checkBox" id="radio_<?=$value['id_produto']?>" ></td>
+                        <td><?= $value['produto'] ?></td>
+                        <td><?= $value['qtd'] ?></td>
+                        <td>
+                        <div class="row">
+                            <div class="col-auto">
+                                <input type="number" placeholder="Adicionar Qtd" class="form-control" id="item_<?=$value['id_produto']?>" >
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-secondary" onclick='atualizarQtdProduto(<?=$value["id_produto"]?>,<?=$value["qtd"]?>)'>Enviar</button>
+                            </div>
+                        </div>
+                        </td>
+                        </tr>
+                        <?php } ?>
+                      
+                    </tbody>
+                    </table>
+                    </div>

@@ -1,0 +1,136 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-success" role="alert">
+       Salvo com sucesso
+    </div> 
+</div>
+<div class="apagar" id="msg_erro">
+    <div class="alert alert-danger" role="alert">
+      Erro ao Salvar
+    </div> 
+</div>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-painel-devolucao">
+                <div>
+                    <h2 class="display-5">Troca de produtos</h2>
+                    <p>Após a troca dos produtos, irá aparecer no histórico dos clientes a troca realizada</p>
+                </div>
+                <div class="box-painel-devolucao-body">
+                    <div class="opcao-cliente">
+                        <div class="row">
+                                <div class="">
+                                   
+                                    <input type="radio" class="" id="cadastro_ok" onchange="selecaoOpcao('cadastro_ok')">
+                                    <Label for="cadastro_ok">Cliente cadastrado</Label>
+                                </div>
+                                <div class="">
+                                 
+                                    <input type="radio" class="" id="cadastro_nao_ok" onchange="selecaoOpcao('cadastro_nao_ok')">
+                                    <Label for="cadastro_nao_ok">Cliente Não cadastrado</Label>
+                                </div>
+                        </div>
+                    </div>
+                    <div id="cliente_ok" class="d-none">
+                    <div class="row">
+                        <div class="col-auto">
+                        <select class="form-select" aria-label="Default select example" id="selecao_nome">
+                            <option value="">Escolha um cliente</option>
+                           <?php foreach($this->view->dados_cliente as $value){?>
+                            <option value="<?= $value['nome']?>"><?= $value['nome']?></option>
+                            <?php } ?>
+                        </select>
+                        </div>
+                        <div class="col-auto">
+                        <select class="form-select" aria-label="Default select example" id="novo_produto">
+                            <option value="">Novo Produto</option>
+                           <?php foreach($this->view->produtos as $value){?>
+                            <option value="<?= $value['produto']."/".$value['preco']?>"><?= $value['produto']."/".$value['preco']?></option>
+                            <?php }?>
+                        </select>
+                        </div>
+                        
+                        <div class="col-auto">
+                        <select class="form-select" aria-label="Default select example" id="antigo_produto">
+                            <option selected>Produto Antigo</option>
+                           <?php foreach($this->view->produtos as $value){?>
+                            <option value="<?= $value['produto']."/".$value['preco']?>"><?= $value['produto']."/".$value['preco']?></option>
+                            <?php }?>
+                        </select>
+                        
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" value="1" placeholder="Qtd a ser trocada" class="form-control" id="qtd"  min="1">
+                        
+                        </div>
+                        <div class="col-auto" onclick="previewInfo()" id="salvar_cliente_nome">
+                                <button class="btn-salvar">
+                                    <img src="/ibautolub/public/img/right-left-solid.svg" alt="" width="25">
+                                </button>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="cliente_nao_ok"  class="d-none">
+                    <div class="row">
+                        <div class="col-auto mt-0">
+                       
+                        <input type="text" name="" id="nome_cliente_novo" class="form-control" placeholder="Nome Cliente">
+                        </div>
+                        <div class="col-auto">
+                        <select class="form-select" aria-label="Default select example" id="produto_cliente_novo">
+                            <option value="">Novo Produto</option>
+                           <?php foreach($this->view->produtos as $value){?>
+                            <option value="<?= $value['produto']."/".$value['preco']?>"><?=$value['produto']."/".$value['preco']?></option>
+                            <?php }?>
+                        </select>
+                        </div>
+                        
+                        <div class="col-auto">
+                        <select class="form-select" aria-label="Default select example" id="produto_cliente_antigo">
+                            <option value="">Produto Antigo</option>
+                           <?php foreach($this->view->produtos as $value){?>
+                            <option value="<?= $value['produto']."/".$value['preco']?>"><?= $value['produto']."/".$value['preco']?></option>
+                            <?php }?>
+                        </select>
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" value="1" placeholder="Qtd a ser trocada" class="form-control" id="qtd" min="1">
+                        
+                        </div>
+                        <div class="col-auto">
+                                <button class="btn-salvar" onclick="previewInfo()" id="salvar_cliente_sem_nome">
+                                    <img src="/ibautolub/public/img/right-left-solid.svg" alt="" width="25">
+                                </button>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+                <hr>
+                <div id="result_troca" class="d-none">
+                        <div>
+                            <div class="painel-view-troca">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                    <p><b>Cliente :</b> <span id="nome_cliente"></span></p>
+                                    <p><b>Produto Novo:</b> <span id="produto_novo"></span></p>
+                                    <p><b>Produto a ser Trocado :</b> <span id="produto_antigo"></span></p>
+                                    <p><b>Total :</b> <span id="total"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <p><b>Qtd :</b> <span id="qtd_recuperada"></span></p>
+                                    <p><b>Diferença a pagar:</b> <span id="diferenca"></span></p>    
+                                    <p><b>Valor de Entrada:</b> <input type="number" step="0.01" id="valor_entrada"> </p>                                    
+                                    </div>
+                               </div>
+                               <div>
+                                    <button class="btn btn-success" id="btn_salvar_dados" onclick="enviarDadosTroca()"> Salvar </button>
+                               </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>

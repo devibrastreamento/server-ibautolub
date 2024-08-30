@@ -1,0 +1,74 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<div class="apagar" id="senha_verificar">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div>
+<section>
+<div class="painel-formulário">
+        <form id="form_cadastro_funcionario">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Fulano">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder="fulano_1"
+                        onchange="verificarLoginFunCadastro()"
+                        >
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          Usuário indisponível
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Função</label>
+                        <select name="profissao" id="profissao" class="form-control">
+                            <option value="">Escolha uma opção</option>
+                            <?php foreach($this->view->dados as $value){?>
+                            <option value="<?= $value['id_profissao']?>"><?= $value['nome_profissao']?></option>
+                          
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="senha2" placeholder="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Descrição </label>
+                        <textarea name="descricao" id="descricao" class="form-control"></textarea>
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_adiconar_funcionario" onclick="salvarFuncionario()">
+                    Enviar
+                </button>
+                <button type="button" class="btn btn-danger">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+    </section>

@@ -1,0 +1,58 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campo Vazio
+    </div> 
+</div>
+
+<section class="painel-formulário">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="opcao-funcao">
+                <div class="opcao-funcao-title">
+                    <h5 class="display-5">Adicionar nova Função ao sistema</h5>
+                </div>
+                <div class="opcao-funcao-body">
+                    <form id="fomr_profissao">
+                    <label for="">Nova Funcao</label>
+                            <div class="input-group mb-3">
+                                
+                                <input type="text" class="form-control" id="novaFuncao" name="novaFuncao" placeholder="Mecânico">
+                                <button class="input-group-text btn btn-primary" type="button" id="btn_enviar_profissao" onclick="salvarProfissional()">
+                                    +
+                                </span>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="opcao-funcao mt-4">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Funcao</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+     $i= 1;
+    foreach($this->view->dados as $value ){?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['nome_profissao']?></td>
+      <td>
+        <button class="btn " onclick='excluirFuncao("<?=$value["id_profissao"]?>")'>
+            <img src="/ibautolub/public/img/excluir.png" alt="">
+        </button>
+      </td>
+      
+    </tr>
+    <?php }?>
+    
+   
+  </tbody>
+</table>
+        </div>
+    </div>
+</section>

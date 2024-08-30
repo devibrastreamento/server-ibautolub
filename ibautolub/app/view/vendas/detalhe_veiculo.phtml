@@ -1,0 +1,31 @@
+<section  class="fundo">
+      <div class="row">
+            <div class="col-md-12">
+                  <div class="painel-config-detalhe"> 
+                        <div class="card-add-carr-title">
+                              <h5 class="display-5">Detlhes dos veículos</h5>
+                              
+                        </div>
+                        <p>Caso seja feita a troca de olho será sugerida a próxima troca </p>
+                        <div class="painel-config-detalhe-body"> 
+                              <div class="config-card">
+                                    <div class="config-card-info">
+                                          <h2>Dados veículo</h2>
+                                          <p>Veículo : <?=$this->view->dados['modelo'] ?></p>
+                                          <p>marca : <?=$this->view->dados['marca'] ?></p>
+                                          <p>Placa : <?=$this->view->dados['placa'] ?></p>
+                                          <p>Hodômetro : <?=$this->view->dados['hodometro'] ?> Km </p>
+                                    </div>
+                                    <div class="config-card-info">
+                                          <h2>Troca de Óleo</h2>
+                                          <p>*Ao realizar a primeira troca será listada aqui </p>
+                                          <p>Data Troca : <?=$this->view->dados['data_troca_oleo'] ?></p>
+                                          <p>Próxima troca : <?=$this->view->dados['update_troca_oleo'] ?></p>
+                                          
+                                    </div>
+                              </div>
+                        </div>
+                  </div>      
+            </div>
+      </div>
+</section>

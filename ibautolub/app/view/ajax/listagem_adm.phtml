@@ -1,0 +1,73 @@
+<div class="box-manager-estatistica">
+                        <div class="box-manager-card">
+                            <h1 class="display-5">Total</h1>
+                            <p><?= $this->view->qtd['total']?></p>
+                        </div>
+                        <div class="box-manager-card">
+                            <h1 class="display-5">Ativo</h1>
+                            <p><?= $this->view->qtd['qtd_ativo']?></p>
+                        </div>
+                        <div class="box-manager-card">
+                            <h1 class="display-5">Inativo</h1>
+                            <p><?= $this->view->qtd['qtd_inativo']?></p>
+                        </div>
+                    </div>
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Permissao Cadastro</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){
+      if($value['id_adm'] != $_SESSION['id']){
+      ?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['adm']?></td>
+      <td><?= $value['permissao_cadastro']?></td>
+      <?php if($value['status_ativo'] == 1){?>
+      <td class="bg-success">Ativo</td>
+      <?php }else{?>
+      <td class="bg-danger">Inativo</td>
+      <?php } ?>
+
+      <td>
+      <div class="dropdown">
+  <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Configuração
+  </a>
+
+  <ul class="dropdown-menu">
+  <li>
+    <button class="dropdown-item" 
+  onclick='abrirJanelaComParametros("edit_adm?id_adm=<?=$value["id_adm"]?>","Editar Adm","/app/adm/manager_view?n=R2VyZW5jaWFtZW50byBHZXJlYWw=&b=L2FwcC9hZG0vaG9tZQ==")'>Editar</button>
+</li>
+<li>
+    <button class="dropdown-item" 
+  onclick='abrirJanelaComParametros("edit_adm_password?id_adm=<?=$value["id_adm"]?>","Editar Adm","/app/adm/manager_view?n=R2VyZW5jaWFtZW50byBHZXJlYWw=&b=L2FwcC9hZG0vaG9tZQ==")'>Editar Senha</button>
+</li>
+  <?php if($value['status_ativo'] == 2){?>
+    <li>
+      <button class="dropdown-item" onclick='solicitacaoAjax(<?= $value["id_adm"]?>,"adm","ativar","listagem_adm")'>Ativar</button>
+    </li>
+    <?php } else{?>
+    <li><button class="dropdown-item" onclick='solicitacaoAjax(<?= $value["id_adm"] ?>,"adm","inativar","listagem_adm")'>Desativar</button></li>
+    <?php } }?>
+   
+    
+  </ul>
+</div>
+
+      </td>
+    </tr>
+    <?php } ?>
+    
+  </tbody>
+</table>

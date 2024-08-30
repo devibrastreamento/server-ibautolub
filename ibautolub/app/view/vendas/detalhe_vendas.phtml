@@ -1,0 +1,65 @@
+<section class="">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-pesquisar-container">
+                <div class="painel-pesquisar">
+                
+                        <div class="painel-pesquisar-title">
+                            <h5 class="display-5">Detalhes Compras</h5>
+                        </div>
+                       
+                        <div class="painel-pesquisa-body">
+                            
+                            <div class="config-card">
+                                <div>
+                                    <h5 class="display-5">Pagamentos</h5>
+                                    <p><b>Tipo</b> : <?=$this->view->dados['nome_pg']?></p>
+                                    <p><b>Valor</b> : R$ <?=$this->view->dados['total']?></p>
+                                    <p><b>Valor entrada</b> : R$ <?=$this->view->dados['valor_recebido']?></p>
+                                    <p><b>troco</b> :R$ <?=$this->view->dados['troco']?></p>
+                                    <p><b>Tipo Venda</b>: <?= $this->view->tipo_venda?></p>
+                                </div>
+                            </div>
+                            <div class="config-card">
+                                <div>
+                                    <h5 class="display-5">Cliente</h5>
+                                    <p><b>Nome</b> : <?=$this->view->dados['nome']?></p>
+                                    <p><b>Pontos</b> : <?=$this->view->dados['pontuacao']?></p>
+                                    <p><b>Veiculos Cadastrados</b> : 2</p>
+                                   
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                </div>
+            </div>
+            <div class="painel-pesquisar-tabela">
+                <div class="tabela">
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Qtd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($this->view->his as $value){?>
+    <tr>
+      <th scope="row">1</th>
+      <td><?= $value['produto']?></td>
+      <td><?= $value['preco']?></td>
+      <td><?= $value['qtd']?></td>
+    </tr>
+   <?php } ?>
+  </tbody>
+</table>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<div class="painel-listagem">
+    <?php foreach($this->view->dados as $value){?>
+                        <div class="card-produto">
+                            <div class="card-produto-title">
+                                    <h5><?= $value['produto']?></h5>
+                            </div>
+                            <div class="card-produto-body">
+                                <div>
+                                    <p>Preço:$<?= $value['preco']?></p>
+                                </div>
+                                <div>
+                                   <p> Qtd:<?= $value['qtd']?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+ </div>

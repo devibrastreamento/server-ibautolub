@@ -1,0 +1,50 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<div class="apagar" id="msg_numeros">
+    <div class="alert alert-warning" role="alert">
+        Digite apenas números
+    </div> 
+</div>
+
+<section>
+<div class="painel-formulário">
+    <p> Cadastro de Serviços</p>
+   <p> <span class="text-danger">*</span> É obrigatório</p>
+   
+    
+        <form id="form_add_service">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nome do Serviço<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="nome_servico" name="nome_servico" placeholder="Troca de Óleo">
+                    </div>
+                    
+                   
+                    
+               
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Preço<span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="preco_servico" step="0.01" name="preco_servico" 
+                        placeholder="30,00" >
+                    </div>
+                    
+                   
+                    
+               
+                </div>
+            </div>
+            <div class="">
+                <button type="button" class="btn btn-success" id="btn_salvar_servico" onclick="salvarServico()">
+                    Cadastrar
+                </button>
+                
+            </div>
+        </form>
+    </div>
+    </section>

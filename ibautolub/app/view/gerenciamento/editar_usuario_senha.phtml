@@ -1,0 +1,46 @@
+<div class="apagar" id="verificar_campo">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<div class="apagar" id="verificar_senha">
+    <div class="alert alert-secondary" role="alert">
+        Senha inválida
+    </div> 
+</div>
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+        <form id="form_alterar_senha">
+            <div class="painelSenha">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Login</label>
+                        <input type="text" class="form-control" id="login" name="login" placeholder="Login" 
+                        value="<?= base64_decode($this->view->dadosFun['login'])?>"
+                        onchange='verificarLoginFuncionario(this.value,<?= $_GET["id_fun"]?>)'
+                        >
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                   Login Existente
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="senha2" placeholder="">
+                    </div>
+                    <div class="">
+                <button type="button" class="btn btn-success" id="btn_alterar_senha" onclick='alterarSenha(<?= $_GET["id_fun"]?>)'>
+                    Alterar
+                </button>
+                
+            </div>
+            
+            </div>
+            
+        </form>
+        </div>
+    </div>
+</section>

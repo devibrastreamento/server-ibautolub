@@ -1,0 +1,38 @@
+<section class="">
+    <div class="row">
+        <div class="col-md-12">
+           <div class="view-despesas">
+                <div class="view-despesas-title">
+                    <h5 class="display-5">Visualizar Informações</h5>
+                </div>
+                <div class="content">
+                    <?php foreach($this->view->dados as $value){
+                        if($value['tipo'] == 'despesa'){
+                        ?>
+                    <div class="">
+                        <p><b>Nome : </b><?= $value['nome']?></p>
+                        <p><b>Valor:</b> R$ <?= $value['valor']?></p>
+                        <p><b>Tipo:</b> <?= $value['tipo']?></p>
+                        <p><b>Status Conta:</b> <?= $value['status']?></p>
+                    </div>
+                    <div class="">
+                        <p><b>Vencimento: </b><?= $value['data_conta']?></p>
+                        <p><b>Data Cadastrada:</b> <?= $value['cadastramento_data']?> </p>
+                        <p><b>OBS:</b><?= $value['obs']?></p>
+                    </div>
+                    <?php } else{?>
+                        <div class="">
+                        <p><b>Nome : </b><?= $value['nome']?></p>
+                        <p><b>Valor:</b> R$ <?= $value['valor']?></p>
+                        <p><b>Tipo:</b> <?= $value['tipo']?></p>
+                    </div>
+                    <div class="">
+                        <p><b>Data Cadastrada:</b> <?= $value['cadastramento_data']?> </p>
+                        <p><b>OBS:</b><?= $value['obs']?></p>
+                    </div>
+                    <?php } }?>
+                </div>
+                <hr>
+           </div>
+    </div>
+</section>

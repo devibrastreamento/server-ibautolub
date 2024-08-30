@@ -1,0 +1,19 @@
+{
+    "nome":"Auto Lub",
+    "require": {
+        "php":"> 7",
+        "slim/slim": "3.*"
+        
+    },
+    "authors": [
+        {
+            "name": "Igot Thiago"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\":"app/",
+            "mf\\":"vendor/mf"
+        }
+    }
+}

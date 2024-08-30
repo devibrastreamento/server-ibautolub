@@ -1,0 +1,51 @@
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-relatorio">
+                <div class="painel-ralatorio-title">
+                        <h5 class="display-5">Escolha um tipo de relatório</h5>
+                </div>
+                <div class="painel-ralatorio-body">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-auto">
+                                <label for="">Tipo de Relatório</label>
+                                <select  id="tipo_relatorio" class="form-control">
+                                    <option value="">Qual tipo de ralatório?</option>
+                                    <option value="venda">Venda</option>
+                                    <option value="estoque">Estoque</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                        Escolha uma opção
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <label for="">Data Inicial</label>
+                                <input type="date"  id="dt_inicial" class="form-control">
+                                <div class="invalid-feedback">
+                                        Escolha uma opção
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <label for="">Data Final</label>
+                                <input type="date"  id="dt_final" class="form-control">
+                                <div class="invalid-feedback">
+                                        Escolha uma opção
+                                </div>
+                            </div>
+                            <div class="col-auto mt-4">
+                                <button class="btn btn-secondary" onclick="solicitarRelatorio()">
+                                    Solicitar
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div id="result_search">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

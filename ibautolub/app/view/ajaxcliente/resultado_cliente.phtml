@@ -1,0 +1,25 @@
+<div class="painel-box" >
+    <?php foreach($this->view->dados as $value){?>
+                        <div class="card-box" 
+                        onclick='abrirJanelaComParametros("venda_detalhe?id=<?=$_SESSION["id_client"]?>&key=<?=$value["key_buy"]?>","Detalhe Venda","/app/client/history?n=Q29tcHJhcyBSZWFsaXphZGFz&b=L2FwcC9jbGllbnQvaG9tZQ==")'>
+                            <div class="card-box-title">
+                                <?php if($value['tipo_pagamento'] == ''){ ?>
+                            <h5 class="display-5">Orçamento</h5>
+                            <?php } else{?>
+                                <h5 class="display-5">Compras</h5>
+                                <?php } ?>
+                            </div>
+                            <div class="card-box-body">
+                                <div class="card-box-content-price">
+                                    <p>R$ <?= $value['total']?></p>
+                                </div>
+                                <div class="card-box-content-date">
+                                    <p><?= $value['data_venda']?></p>
+                                </div>
+                            </div>
+                        </div>
+<?php } ?>
+                        
+                        
+            
+</div>

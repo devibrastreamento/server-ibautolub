@@ -1,0 +1,69 @@
+<section class="mt-5">
+    <div class="row">
+        <div class="col-md-12">
+           <div class="box">
+                <div class="box-title">
+                    <h5 class="display-5">Acésso Rápido</h5>
+                </div>
+                <div class="box-body">
+                    <div class="box-opcoes">
+                        <div class="card-opcao">
+                            <div class="card-opcao-title">
+                                <!-- Senm rtitulo -->
+                            </div>
+                            <?php if($_SESSION['permissao'] == 'S') {?>
+                            <div class="card-opcao-body" 
+                            onclick='abrirJanela("cadastro_usuario","Gerencimento","/app/adm/home")'>
+                                <div class="config-img">
+                                    <img src="/ibautolub/public/img/user.png" width="150">
+                                    <h3 class="display-5 text-white">Cadastro funcionários</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-opcao"
+                        onclick='abrirJanela("manager_product","Gerencimento","/app/adm/home")'
+                        >
+                            <div class="card-opcao-title">
+                                <!-- Senm rtitulo -->
+                            </div>
+                            <div class="card-opcao-body" >
+                                <div class="config-img">
+                                    <img src="/ibautolub/public/img/box.png" width="150">
+                                    <h3 class="display-5 text-white">Cadastro Produtos</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-opcao"
+                        onclick='abrirJanela("manager_view","Gerenciamento Gereal","/app/adm/home")'
+                        >
+                            <div class="card-opcao-title">
+                                <!-- Senm rtitulo -->
+                            </div>
+                            <div class="card-opcao-body">
+                                <div class="config-img">
+                                    <img src="/ibautolub/public/img/builder.png" width="150">
+                                    <h3 class="display-5 text-white">Gerenciamento</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <div class="card-opcao"
+                        onclick='abrirJanela("report","Report","/app/adm/home")'
+                        >
+                            <div class="card-opcao-title">
+                                <!-- Senm rtitulo -->
+                            </div>
+                            <div class="card-opcao-body">
+                                <div class="config-img">
+                                    <img src="/ibautolub/public/img/report.png" width="150">
+                                    <h3 class="display-5 text-white">Relatórios</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</section>

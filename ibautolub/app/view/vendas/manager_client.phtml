@@ -1,0 +1,41 @@
+<div class="apagar" id="msg">
+    <div class="alert alert-danger" role="alert">
+        Campos Vazios
+    </div> 
+</div>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="painel-busca">
+                <div class="painel-busca-title">
+                        <h5 class="display-5">Buscar Funcionario</h5>
+                </div> 
+                <div class="painel-busca-body">
+                    <div class="header-border">
+                        <label class="header-border-label">
+                            Pesquisar usuário
+                        </label>
+                        
+                        <div class="header-border-input">
+                            <input type="text" id="cliente" placeholder="Ex.: Fulano"  class="form-control">
+                            <div class="invalid-feedback">
+                                Campo vazio
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary"  type="button"
+                        onclick='pesquisarCliente()' id="btn_pesquisar">
+                            Pesquisar
+                        </button>
+                    </div>
+                   
+                </div> 
+                <hr>
+            </div>
+            <div id="result_search">
+
+            </div>
+        </div>
+    </div>
+</section>

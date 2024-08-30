@@ -1,0 +1,21 @@
+<div class="painel-conteudo">
+                <div class="card-conteudo">
+                    <?php foreach($this->view->dados as $value){?>
+                    <div class="card-box" 
+                    onclick="abrirJanelaComParametros('detalhes_compra?key=<?=$value['id_venda']?>&chave=<?= $value['key_buy']?>',
+                    'Detalhes Compras','/app/fun/pesquisar_venda?n=QnVzY2FyIFZlbmRhcw==&b=L2FwcC9mdW4vaG9tZQ==')">
+                        <div class="card-box-title">
+                            <h5 class="display-5">Compras</h5>
+                        </div>
+                        <div class="card-box-body">
+                            <div class="card-box-content-price">
+                                <p>R$ <?= $value['total']?></p>
+                            </div>
+                            <div class="card-box-content-date">
+                                <p><?= $value['data_venda']?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+</div>

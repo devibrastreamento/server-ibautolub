@@ -1,0 +1,31 @@
+<div>
+                    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Funcionario</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">msg</th>
+      <th scope="col">data</th>
+      <th scope="col">tipo</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+    $i=1;
+    foreach( $this->view->dados as $value){
+    ?>
+    <tr>
+      <th scope="row"><?= $i++ ?></th>
+      <td><?= $value['autor']?></td>
+      <td><?= $value['receptor']?></td>
+      <td><?= $value['msg']?></td>
+      <td><?= $value['data_cadastro']?></td>
+      <td><?= $value['tipo']?></td>
+     
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+                    </div>

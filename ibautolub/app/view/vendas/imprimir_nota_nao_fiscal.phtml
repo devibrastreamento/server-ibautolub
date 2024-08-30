@@ -1,0 +1,39 @@
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-print">
+                <div class="box-print-header">
+                    <img src="/ibautolub/public/img/logo1.png" class="img-fluid" width="200">
+                    <p>Vendedor: <?= $this->view->fun?></p>
+                    <p>Comprador: <?= $this->view->cliente?></p>
+                </div>
+                <div class="box-print-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Qtd</th>
+                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $i=1;
+                        foreach($this->view->dados as $value){?>
+                        <tr>
+                        <th scope="row"><?= $i++ ?></th>
+                        <td><?= $value['produto']?></td>
+                        <td><?= $value['preco']?></td>
+                        <td><?= $value['qtd']?></td>
+                        </tr>
+                        <?php } ?>
+                        
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

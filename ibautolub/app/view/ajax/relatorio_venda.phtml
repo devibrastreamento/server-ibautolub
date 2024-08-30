@@ -1,0 +1,68 @@
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-dados-pesquisa">
+                <div>
+                    <h5> Dados de Vendas</h5>
+                </div>
+                <div class="card-dados-pesquisa-body">
+                    <ul class="">
+                        <li> <b>Data Pesquisada :</b><?= $_GET['dt_inicial']?> / <?= $_GET['dt_final']?> </li>
+                        
+                    </ul>
+                    <div>
+                        <div>
+                          <h5>Vendas</h5>
+                        </div>
+                        <div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">Tipo</th>
+                              <th scope="col">Total Vendido(R$)</th>
+                              <th scope="col">Qtd Produtos</th>
+                              <th scope="col">Qtd Serviço</th>
+                             
+                              <th scope="col">Ação</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php foreach($this->view->dados as $value){?>
+                            <tr>
+                              <td>Vendas</td>
+                              <td><?=  $value['total']?></td>
+                              <td><?=  $value['qtd_produtos'] ?></td>
+                              <td><?= $value['qtd_servico'] ?></td>
+                              <td>
+                                <button class="btn btn-primary" onclick='exibiListagem()'>
+                                  Visualizar Relatório
+                                </button>
+                                <button class="btn btn-secondary" onclick='downloadDados()'>
+                                 Download
+                                </button>
+                              </td>
+                            </tr>
+                            <?php } ?>
+                           
+                          </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="box-solicitacao-api invisible" id="box_tabela">
+          
+                        <button class="btn btn-danger" onclick="fecharTabela()">
+                           X
+                        </button>
+           
+              <div class="box-table" id="table_body">
+                         
+              </div>
+        </div>
+        
+       
+    </div>
+</section>
